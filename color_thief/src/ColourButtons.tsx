@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Button, Box, Stack, Grid } from "@mui/material";
 import { hexToRgb, hslToRgb, rgbToHex, rgbToHsl } from "./utils";
 
@@ -110,6 +110,11 @@ const ColourButtons: React.FC<ColorButtonsProps> = ({ correctHex, radius, setGue
 			return rgbToHex(rr, gg, bb);
 		});
 	}, [selectedIndex, buttons, radius]);
+
+	useEffect(() => {
+		setSelectedIndex(null);
+		setSubmitted(false);
+	}, [correctHex]);
 
 	return (
 		<Grid container spacing={2} justifyContent="center" textAlign="center">

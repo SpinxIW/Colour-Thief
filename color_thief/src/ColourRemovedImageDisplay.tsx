@@ -19,6 +19,7 @@ const ColourRemovedImageDisplay: React.FC<ColorRemoveProps> = ({
 	height = 600,
 }) => {
 	const [processedSrc, setProcessedSrc] = useState<string | null>(null);
+	const [scalableRadius, setScalableRadius] = useState(radius)
 	const imgRef = useRef<HTMLImageElement>(null);
 
 	// Convert hex to RGB
